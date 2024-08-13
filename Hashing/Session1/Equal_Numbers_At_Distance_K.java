@@ -1,4 +1,4 @@
-package Hashing.Session_1;
+package Hashing.Session1;
 
 import java.util.HashMap;
 import java.util.Map;
