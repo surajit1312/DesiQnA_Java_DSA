@@ -14,7 +14,7 @@ public class Sum_Range_L_To_R {
     /**
      * Optimal approach
      * TC: O(N + Q), where Q = number of queries to pass l and r
-     * SC: O(1)
+     * SC: O(N)
      * 
      * @param nums
      * @param l
