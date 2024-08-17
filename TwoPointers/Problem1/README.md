@@ -1,4 +1,4 @@
-# Two Pointers
+# Number of subarrays whose sum <= K
 
 ## Template for problems:- [i………………………..j] < = k 
 
