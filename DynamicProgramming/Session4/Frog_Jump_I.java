@@ -23,7 +23,7 @@ public class Frog_Jump_I {
         // SC: O(N)
         int[] dp = new int[n]; // initializing dp array
         dp[0] = 0; // already at height 0, so cost = 0
-        dp[1] = heights[1] - heights[0]; // 30 - 10 = 20
+        dp[1] = Math.abs(heights[1] - heights[0]); // 30 - 10 = 20
         // dp[2] = min(abs(heights[2] - height[1]) + dp[1], heights[2] - heights[0]);
         // dp[3] = min(abs(heights[3] - heights[2]) + dp[2], abs(heights[3] -
         // heights[1]) + dp[1])
