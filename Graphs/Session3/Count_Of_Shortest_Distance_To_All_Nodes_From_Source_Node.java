@@ -22,7 +22,7 @@ public class Count_Of_Shortest_Distance_To_All_Nodes_From_Source_Node {
     /**
      * Using BFS
      * 
-     * TC: O(V + E)
+     * TC: O(3V + 2E) ~ O(V + E)
      * SC: O(V + E)
      * 
      * @param edges
@@ -37,11 +37,12 @@ public class Count_Of_Shortest_Distance_To_All_Nodes_From_Source_Node {
         int[] ways = new int[n + 1];
         ways[0] = 0;
         // Creating adjacency list
+        // SC: O(V + E)
         HashMap<Integer, ArrayList<Integer>> graph = new HashMap<Integer, ArrayList<Integer>>();
-        for (int i = 1; i <= n; i++) {
+        for (int i = 1; i <= n; i++) { // TC: O(V)
             graph.put(i, new ArrayList<Integer>());
         }
-        for (int i = 0; i < e; i++) {
+        for (int i = 0; i < e; i++) { // TC: O(E)
             graph.get(edges[i][0]).add(edges[i][1]);
             graph.get(edges[i][1]).add(edges[i][0]);
         }
@@ -54,9 +55,9 @@ public class Count_Of_Shortest_Distance_To_All_Nodes_From_Source_Node {
         level[source] = 0;
         visited[source] = 1;
         ways[source] = 1;
-        while (!queue.isEmpty()) {
+        while (!queue.isEmpty()) { // TC: O(V)
             int u = queue.poll();
-            for (Integer v : graph.getOrDefault(u, new ArrayList<Integer>())) {
+            for (Integer v : graph.getOrDefault(u, new ArrayList<Integer>())) { // TC: O(E)
                 if (visited[v] == 0) {
                     queue.offer(v);
                     visited[v] = 1;
@@ -70,7 +71,7 @@ public class Count_Of_Shortest_Distance_To_All_Nodes_From_Source_Node {
             }
         }
         int[][] numWays = new int[n][1];
-        for (int i = 1; i <= n; i++) {
+        for (int i = 1; i <= n; i++) { // TC: O(V)
             numWays[i - 1] = new int[] { i, ways[i] };
         }
         return numWays;
